@@ -1,19 +1,27 @@
-import burgerBannerImgUrl from "./images/banner-burger.jpg";
+import burgerBannerImgUrl from "../images/banner-burgeer.png";
+
 
 function loadPage() {
     const contentDiv = document.querySelector("#content");
 
+    const homePageDiv = document.createElement("div");
+    homePageDiv.classList.add("home-page");
+   
     const burgerBannerImg = new Image();
     burgerBannerImg.src = burgerBannerImgUrl;
-    contentDiv.appendChild(burgerBannerImg);
-
-    const heading = document.createElement("h1");
-    heading.textContent = "BURGER HEAVEN";
-    contentDiv.appendChild(heading);
-
-    loadAboutUsSection(contentDiv);
+    burgerBannerImg.classList.add("banner-image");
     
-    loadReviewsSection(contentDiv);
+
+    const infomationDiv = document.createElement("div");
+    infomationDiv.classList.add("info");
+    
+    loadAboutUsSection(infomationDiv);    
+    loadReviewsSection(infomationDiv);
+
+    homePageDiv.appendChild(burgerBannerImg);
+    homePageDiv.appendChild(infomationDiv);
+    contentDiv.appendChild(homePageDiv);
+
 }
 
 function loadAboutUsSection(parentDiv){
@@ -41,7 +49,7 @@ function loadReviewsSection(parentDiv){
 
     // Content
     const reviewsHeader = document.createElement("h2");
-    reviewsHeader.textContent = "REVIEWS";
+    reviewsHeader.textContent = "REVIEW";
     reviewsSection.appendChild(reviewsHeader);
 
     const review1Para = document.createElement("p");

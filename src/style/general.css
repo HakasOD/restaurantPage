@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'dejavu';
+    src: url('../fonts/dejavusans_regular_macroman/DejaVuSans-webfont.woff') format('woff');
+       
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --page-background-color: #1F1F1F;
+    --secondary-colour: white;
+    --flair-color: rgba(255, 166, 0, 0.822);
+
+    --main-font-family: "dejavu";
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+body {
+    background-color: var(--page-background-color);
+    color: var(--secondary-colour);
+    width: clamp(100px, 80vw, 1000px);
+    margin: auto;
+    font-family: var(--main-font-family);
+}
+
+header {
+    display: flex;
+    flex-basis: 20vw;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+header .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+header .logo span {
+    color: var(--flair-color);
+}
+header .logo img {
+    flex-basis: 50px;
+    max-width: 50px;
+    height: auto;
+   
+}
+
+header nav {
+    flex: 1;
+    width: 100vw;
+    padding: 1vh 0;
+    display: flex;
+    justify-content: right;
+    gap: clamp(10px, 30vw, 200px);
+    
+
+}
+
+header nav button {
+    border: none;
+    background: none;
+    color: var(--secondary-colour);
+    font-size: large;
+}
+
+header nav button:hover {
+    border-bottom: var(--flair-color) 2px solid;
+}

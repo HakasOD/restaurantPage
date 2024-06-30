@@ -1,0 +1,19 @@
+#contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
+}
+
+#contact h1 {
+    color: var(--flair-color);
+}
+
+#contact p {
+    font-size: larger;
+}
+
+#contact iframe {
+    width: 70%;
+    height: 50vh;
+}

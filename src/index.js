@@ -1,8 +1,19 @@
-import loadPage from "./initilisePage";
-import loadMenu from "./menu";
-import loadContact from "./contact";
+import loadPage from "./js/initilisePage";
+import loadMenu from "./js/menu";
+import loadContact from "./js/contact";
+import logoImgUrl from "./images/burger-icon.png";
 
-console.log("hia");
+import "./style/general.css";
+import "./style/home.css";
+import "./style/menu.css";
+import "./style/contact.css";
+
+console.log("??");
+function setNavBarLogo(){
+    const logoImg = document.querySelector("#logo-img");
+    logoImg.src = logoImgUrl;
+    
+}
 
 function setNavBarListeners(){
     const homeBtn = document.querySelector(".home");
@@ -30,7 +41,7 @@ function removeContentChildren(){
     contentDiv.innerHTML = "";
 }
 
-
+setNavBarLogo();
 setNavBarListeners();
-loadPage();
+loadContact();
 

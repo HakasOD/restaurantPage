@@ -1,0 +1,23 @@
+.home-page {
+    display: flex;
+    width: 100%;
+}
+
+.home-page .banner-image {
+    width: 100%;
+    max-width: 800px;
+    margin-left: -200px;
+    height: auto;
+}
+
+.home-page .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10vh;
+}
+
+.home-page .info h2{
+    color: var(--flair-color);    
+}
+

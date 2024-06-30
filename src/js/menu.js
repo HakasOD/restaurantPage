@@ -1,17 +1,50 @@
-import blandBurgerUrl from "./images/bland-burger.jpg";
+import blandBurgerUrl from "../images/bland-burger.jpg";
+import bigBurgerUrl from "../images/big-big-burger.jpg";
+import mushroomBurgerUrl from "../images/mushroom-burger.jpg";
+import normalBurgerUrl from "../images/normal-burger.jpg";
 
 function loadMenu(){
     const contentDiv = document.querySelector("#content");
 
+    // Menu Heading
+    const menuHeaderDiv = document.createElement("div");
+    menuHeaderDiv.classList.add("menu-header");
+
+    const menuHeader = document.createElement("h1");
+    menuHeader.textContent = "MENU";
+    menuHeaderDiv.appendChild(menuHeader);
+
+    contentDiv.appendChild(menuHeaderDiv);
+
+    // Append Menu
     const menuDiv = document.createElement("div");
     menuDiv.id = "menu-content";
     contentDiv.appendChild(menuDiv);
     
+    loadMenuItems(menuDiv);
+}
+
+function loadMenuItems(parentElement){
+    const normalBurgerImg = new Image();
+    normalBurgerImg.src = normalBurgerUrl;
+    const normalBurger = new MenuItem("The Classic", 10, "Can't go wrong with this one", normalBurgerImg );
+
+    const bigBurgerImg = new Image();
+    bigBurgerImg.src = bigBurgerUrl;
+    const bigBurger = new MenuItem("Big Burger", 14.99, "Big and juicy", bigBurgerImg);
+
+    const mushroomBurgerImg = new Image();
+    mushroomBurgerImg.src = mushroomBurgerUrl;
+    const mushroomBurger = new MenuItem("Mushroom Burger", 10, "Mushroomy goodness", mushroomBurgerImg);
+
     const blandBurgerImg = new Image();
     blandBurgerImg.src = blandBurgerUrl;
-    const blandBurger = new MenuItem("Bland Burger", 8.00, "A classic of burgers, can't go wrong with this choice", blandBurgerImg);
+    const blandBurger = new MenuItem("Bland Burger", 3.00, "Bland but cheap", blandBurgerImg);
 
-    loadMenuItem(blandBurger, menuDiv);
+    loadMenuItem(normalBurger, parentElement);
+    loadMenuItem(bigBurger, parentElement);
+    loadMenuItem(mushroomBurger, parentElement);
+    loadMenuItem(blandBurger, parentElement);
 }
 
 function loadMenuItem(menuItem, parentDiv){
@@ -26,7 +59,7 @@ function loadMenuItem(menuItem, parentDiv){
     menuItemDiv.appendChild(menuItem.image);
 
     const pricePara = document.createElement("p");
-    pricePara.textContent = menuItem.price;
+    pricePara.textContent = menuItem.formattedPrice;
     menuItemDiv.appendChild(pricePara);
 
     const descriptionPara = document.createElement("p");
@@ -80,6 +113,10 @@ class MenuItem {
 
     get price(){
         return this._price;
+    }
+
+    get formattedPrice(){
+        return "$" + this._price;
     }
 
     get description(){

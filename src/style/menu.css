@@ -1,0 +1,18 @@
+.menu-header {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--flair-color);
+}
+
+#menu-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, clamp(199px, 25%, 300px));
+    justify-items: center;
+
+}
+
+#menu-content .menu-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
